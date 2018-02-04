@@ -29,7 +29,11 @@ Route::post('/task', function (Request $request) {
         'name' => 'required|max:255',
     ]);
 
-    // タスク作成…
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
 });
 
 /**
